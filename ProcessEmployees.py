@@ -35,16 +35,16 @@ for row in reader:
         full_name = fname + ' ' + lname
         new_salary = salary * 1.1
         
-        empdata[full_name] = {format(new_salary, ',.2f')}
+        empdata[full_name] = {'New salary' : format(new_salary, ',.2f')}
 
 print()
 print('=========================================')
 print()
 
 #iternate through the dictionary and print out the key and value as per printout
-for k, v in empdata.items():
-    
-    print(f'Manager Name: {k} New salary: ${v}')
+for ok, ov in empdata.items():
+    for ik, iv in ov.items():
+        print(f'Manager Name: {ik} New salary: ${iv}')
 
         
 
