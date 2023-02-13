@@ -9,33 +9,48 @@ Iternate through the dictionary to print out their name and thier new salary (as
 '''
 
 import csv
+CSV = 'employee_data.csv'
 
 #open the file
-
-
+infile = open(CSV, 'r', newline='')
+reader = csv.reader(infile, delimiter=',')
 
 
 #create an empty dictionary
-
+empdata={}
 
 #use a loop to iterate through the csv file
-
+next(reader)
+for row in reader:
+    fname = row[1]
+    lname = row[2]
+    dept = row[3]
+    title = row[4]
+    salary = int(row[5])
 
     #check if the employee fits the search criteria
+    if dept == 'Marketing' and title == 'CSR':
+        print(f'Manager Name: {fname} {lname} Current Salary: $' + format(salary, ',.2f'))
 
-
-    
+        full_name = fname + ' ' + lname
+        new_salary = salary * 1.1
+        
+        empdata[full_name] = {format(new_salary, ',.2f')}
 
 print()
 print('=========================================')
 print()
 
 #iternate through the dictionary and print out the key and value as per printout
+for k, v in empdata.items():
+    
+    print(f'Manager Name: {k} New salary: ${v}')
 
-
-
-          
         
 
         
     
+
+
+
+
